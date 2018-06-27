@@ -1,0 +1,2 @@
+# SearchInput
+Generic search input
