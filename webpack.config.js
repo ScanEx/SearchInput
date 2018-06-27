@@ -21,9 +21,6 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {              
-              publicPath: './'
-            }
           },
           "css-loader"
         ]
@@ -43,9 +40,6 @@ module.exports = {
         use: [
           {
             loader: 'file-loader',
-            options: {
-              publicPath: './'
-            }  
           }
         ]
       }
@@ -53,10 +47,7 @@ module.exports = {
   },
   plugins: [   
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
       filename: "bundle.css",
-      chunkFilename: "[id].css"
     })
   ]
 };
