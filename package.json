@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/ScanEx/SearchInput#readme",
   "dependencies": {
-    "scanex-event-target": "git+https://github.com/Scanex/EventTarget.git",
-    "scanex-async": "git+https://github.com/Scanex/Async.git"
+    "scanex-async": "git+https://github.com/Scanex/Async.git",
+    "scanex-event-target": "git+https://github.com/Scanex/EventTarget.git"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

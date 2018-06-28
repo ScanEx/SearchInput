@@ -9,7 +9,7 @@
 
 .leaflet-ext-search {
     clear: none !important;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.4);    
+    /* box-shadow: 0 1px 5px rgba(0,0,0,0.4);     */
     background-color: white; 
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -26,10 +26,10 @@
     border-bottom-left-radius: 5px;
 }
 
-.leaflet-ext-search,
+/* .leaflet-ext-search,
 .leaflet-ext-search-list {
     width: 400px;
-}
+} */
 
 .leaflet-ext-search-list {    
     background-color: white;    
