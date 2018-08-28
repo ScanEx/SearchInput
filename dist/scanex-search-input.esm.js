@@ -1,5 +1,41 @@
-import EventTarget from 'scanex-event-target';
-import { chain } from 'scanex-async';
+class EventTarget {
+    constructor() {
+        this.listeners = {};
+    }
+    addEventListener(type, callback) {
+        if(!(type in this.listeners)) {
+            this.listeners[type] = [];
+        }
+        this.listeners[type].push(callback);
+    }
+    removeEventListener (type, callback) {
+        if(!(type in this.listeners)) {
+            return;
+        }
+        let stack = this.listeners[type];
+        for(let i = 0, l = stack.length; i < l; i++) {
+            if(stack[i] === callback){
+                stack.splice(i, 1);
+                return this.removeEventListener(type, callback);
+            }
+        }
+    }
+    dispatchEvent(event) {
+        if(!(event.type in this.listeners)) {
+            return;
+        }
+        let stack = this.listeners[event.type];
+	    Object.defineProperty(event, 'target', {
+            enumerable: false,
+            configurable: false,
+            writable: false,
+            value: this
+        });
+        for(let i = 0, l = stack.length; i < l; i++) {
+            stack[i].call(this, event);
+        }
+    }
+}
 
 class ResultView extends EventTarget {
     constructor({input, replaceInput = false}){
@@ -238,6 +274,13 @@ class ResultView extends EventTarget {
         this._list.style.display = 'none';                
     }
 }
+
+const chain = (tasks, state) => {
+    return tasks.reduce(
+        (prev, next) => prev.then(next),
+        new Promise ((resolve, reject) => resolve (state))
+    );
+};
 
 class SearchWidget extends EventTarget {
     constructor(container, {placeHolder, providers, suggestionTimeout = 1000, suggestionLimit = 10, fuzzySearchLimit = 1000, retrieveManyOnEnter = false, replaceInputOnEnter = false}){

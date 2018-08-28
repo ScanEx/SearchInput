@@ -9,6 +9,24 @@ export default [
     {
         input: 'index.js',
         output: { 
+            file: pkg.browser,
+            format: 'iife',
+            name: 'SearchInput',
+        },
+        plugins: [
+            resolve({ jsnext: true, main: false, module: true, browser: false }),
+            commonjs(),
+            css({minified: false, dest: 'dist/scanex-search-input.css'}),
+            copy({
+                files: [ 'src/*.png' ],
+                dest: 'dist'            
+            }),
+            babel(),
+        ],
+    },
+    {
+        input: 'index.js',
+        output: { 
             file: pkg.module,
             format: 'cjs',
         },
@@ -29,8 +47,8 @@ export default [
             file: pkg.main,
             format: 'esm',
         },
-        external: ['scanex-async', 'scanex-event-target'],
         plugins: [
+            resolve({ jsnext: true, main: true, module: false, browser: false }),
             css({minified: false, dest: 'dist/scanex-search-input.css'}),
         ],
     }
