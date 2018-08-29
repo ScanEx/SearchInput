@@ -2,7 +2,7 @@
   "name": "scanex-search-input",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/scanex-search-input.esm.js",
+  "main": "index.js",
   "module": "dist/scanex-search-input.cjs.js",
   "browser": "dist/scanex-search-input.min.js",
   "scripts": {

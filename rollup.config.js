@@ -40,16 +40,5 @@ export default [
             }),
             babel(),
         ],
-    },
-    {
-        input: 'index.js',
-        output: { 
-            file: pkg.main,
-            format: 'esm',
-        },
-        plugins: [
-            resolve({ jsnext: true, main: true, module: false, browser: false }),
-            css({minified: false, dest: 'dist/scanex-search-input.css'}),
-        ],
     }
 ];
