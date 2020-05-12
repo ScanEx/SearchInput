@@ -2,6 +2,10 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var L$1 = _interopDefault(require('leaflet'));
+
 var commonjsGlobal = typeof globalThis !== 'undefined' ? globalThis : typeof window !== 'undefined' ? window : typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : {};
 
 function unwrapExports (x) {
@@ -2787,7 +2791,7 @@ var EventTarget = /*#__PURE__*/function () {
   return EventTarget;
 }();
 
-var scanexEventTarget_cjs = EventTarget;
+var scanexEventTarget = EventTarget;
 
 var ResultView = /*#__PURE__*/function (_EventTarget) {
   _inherits(ResultView, _EventTarget);
@@ -3092,9 +3096,9 @@ var ResultView = /*#__PURE__*/function (_EventTarget) {
   }]);
 
   return ResultView;
-}(scanexEventTarget_cjs);
+}(scanexEventTarget);
 
-var scanexAsync_cjs = createCommonjsModule(function (module, exports) {
+var scanexAsync = createCommonjsModule(function (module, exports) {
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
@@ -4573,8 +4577,8 @@ var chain = function chain(tasks, state) {
 exports.chain = chain;
 });
 
-unwrapExports(scanexAsync_cjs);
-var scanexAsync_cjs_1 = scanexAsync_cjs.chain;
+unwrapExports(scanexAsync);
+var scanexAsync_1 = scanexAsync.chain;
 
 var SearchWidget = /*#__PURE__*/function (_EventTarget) {
   _inherits(SearchWidget, _EventTarget);
@@ -4681,7 +4685,7 @@ var SearchWidget = /*#__PURE__*/function (_EventTarget) {
         };
       });
 
-      scanexAsync_cjs_1(tasks, {
+      scanexAsync_1(tasks, {
         completed: false,
         response: []
       }).then(function (state) {
@@ -4744,7 +4748,7 @@ var SearchWidget = /*#__PURE__*/function (_EventTarget) {
         };
       });
 
-      scanexAsync_cjs_1(tasks, {
+      scanexAsync_1(tasks, {
         completed: false,
         response: []
       }).then(function (state) {// if(state.response.length > 0 && !this._retrieveManyOnEnter){
@@ -4784,25 +4788,25 @@ var SearchWidget = /*#__PURE__*/function (_EventTarget) {
   }]);
 
   return SearchWidget;
-}(scanexEventTarget_cjs);
+}(scanexEventTarget);
 
-var SearchControl = L.Control.extend({
-  includes: L.Evented ? L.Evented.prototype : L.Mixin.Events,
+var SearchControl = L$1.Control.extend({
+  includes: L$1.Evented ? L$1.Evented.prototype : L$1.Mixin.Events,
   initialize: function initialize(options) {
-    L.setOptions(this, options);
+    L$1.setOptions(this, options);
     this._allowSuggestion = true;
     this.options.suggestionTimeout = this.options.suggestionTimeout || 1000;
     this.options.suggestionLimit = this.options.suggestionLimit || 10;
   },
   onAdd: function onAdd(map) {
-    this._container = L.DomUtil.create('div', 'leaflet-ext-search');
+    this._container = L$1.DomUtil.create('div', 'leaflet-ext-search');
     this._widget = new SearchWidget(this._container, this.options);
     map.on('click', this._widget.results.hide.bind(this._widget.results));
     map.on('dragstart', this._widget.results.hide.bind(this._widget.results));
     return this._container;
   },
   addTo: function addTo(map) {
-    L.Control.prototype.addTo.call(this, map);
+    L$1.Control.prototype.addTo.call(this, map);
 
     if (this.options.addBefore) {
       this.addBefore(this.options.addBefore);
@@ -5137,7 +5141,7 @@ var OsmDataProvider = /*#__PURE__*/function (_EventTarget) {
   }]);
 
   return OsmDataProvider;
-}(scanexEventTarget_cjs);
+}(scanexEventTarget);
 
 var aPossiblePrototype = function (it) {
   if (!isObject(it) && it !== null) {
@@ -5483,7 +5487,7 @@ var CoordinatesDataProvider = /*#__PURE__*/function (_EventTarget) {
   }]);
 
   return CoordinatesDataProvider;
-}(scanexEventTarget_cjs);
+}(scanexEventTarget);
 
 var CadastreDataProvider = /*#__PURE__*/function (_EventTarget) {
   _inherits(CadastreDataProvider, _EventTarget);
@@ -5658,11 +5662,11 @@ var CadastreDataProvider = /*#__PURE__*/function (_EventTarget) {
   }]);
 
   return CadastreDataProvider;
-}(scanexEventTarget_cjs);
+}(scanexEventTarget);
 
 exports.CadastreDataProvider = CadastreDataProvider;
 exports.CoordinatesDataProvider = CoordinatesDataProvider;
 exports.OsmDataProvider = OsmDataProvider;
 exports.SearchControl = SearchControl;
 exports.SearchWidget = SearchWidget;
-//# sourceMappingURL=scanex-search-input.cjs.js.map
+//# sourceMappingURL=scanex-search-input.js.map

@@ -1,3 +1,4 @@
+import L from 'leaflet';
 import SearchWidget from './SearchWidget.js';
 
 let SearchControl = L.Control.extend({
