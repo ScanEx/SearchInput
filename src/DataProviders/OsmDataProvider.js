@@ -1,5 +1,4 @@
-
-import EventTarget from 'scanex-event-target';
+import EventTarget from '@scanex/event-target';
 
 class OsmDataProvider extends EventTarget {
     constructor({serverBase}){

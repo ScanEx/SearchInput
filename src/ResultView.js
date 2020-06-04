@@ -1,4 +1,4 @@
-import EventTarget from 'scanex-event-target';
+import EventTarget from '@scanex/event-target';
 
 class ResultView extends EventTarget {
     constructor({input, replaceInput = false}){

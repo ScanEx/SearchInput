@@ -1,7 +1,7 @@
 import './SearchWidget.css';
 import ResultView from './ResultView.js';
-import EventTarget from 'scanex-event-target';
-import { chain } from 'scanex-async';
+import EventTarget from '@scanex/event-target';
+import { chain } from '@scanex/async';
 
 class SearchWidget extends EventTarget {
     constructor(container, {placeHolder, providers, suggestionTimeout = 1000, suggestionLimit = 10, fuzzySearchLimit = 1000, retrieveManyOnEnter = false, replaceInputOnEnter = false}){

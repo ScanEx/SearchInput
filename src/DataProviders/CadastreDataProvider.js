@@ -1,4 +1,4 @@
-import EventTarget from 'scanex-event-target';
+import EventTarget from '@scanex/event-target';
 
 class CadastreDataProvider extends EventTarget {
     constructor({serverBase, tolerance}){
