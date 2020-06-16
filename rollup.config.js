@@ -18,7 +18,12 @@ export default [
             },
         },
         plugins: [
-            resolve(),
+            resolve({
+                dedupe: [
+                    '@scanex/event-target',
+                    'core-js',
+                ]
+            }),
             commonjs(),
             css({minified: false, dest: 'public/main.css'}),
             cpy({
@@ -28,12 +33,12 @@ export default [
             babel({                
                 extensions: ['.js', '.mjs'],
                 exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
-                include: ['example/example.js', 'src/**']
+                include: ['example/example.js', 'src/**','node_modules/**']
             }),
 	],
     },
     {
-        input: 'index.js',
+        input: pkg.module,
         external: ['leaflet'],
         output: { 
             file: pkg.main,
@@ -44,7 +49,12 @@ export default [
             },
         },
         plugins: [
-            resolve(),
+            resolve({
+                dedupe: [
+                    '@scanex/event-target',
+                    'core-js',
+                ]
+            }),
             commonjs(),
             css({minified: false, dest: 'dist/scanex-search-input.css'}),
             cpy({
@@ -54,7 +64,7 @@ export default [
             babel({                
                 extensions: ['.js', '.mjs'],
                 exclude: ['node_modules/@babel/**', 'node_modules/core-js/**'],
-                include: ['index.js', 'src/**']
+                include: ['index.js', 'src/**','node_modules/**']
             }),
         ],
     }
